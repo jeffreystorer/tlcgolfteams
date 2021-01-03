@@ -95,7 +95,7 @@ export default function LineupTable({ lineup }) {
           course={lineup.course.toUpperCase()}
           element="lineup-table-div"
           format="JPEG"
-          page="Lineup"
+          page="Teams"
         />
       </div>
     </>

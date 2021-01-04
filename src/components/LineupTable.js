@@ -1,15 +1,21 @@
-import React from "react"
+import React, { useState } from "react"
 import TeamTable from "./TeamTable"
 import { v4 as uuidv4 } from "uuid"
 import ButtonDownloadScreenShot from "./ButtonDownloadScreenshot"
 import createLineupTablePlayersArray from "../functions/createLineupTablePlayersArray"
 
 export default function LineupTable({ lineup }) {
+  const [showFirstName, setShowFirstName] = useState(false)
   let playersArray = createLineupTablePlayersArray(
+    showFirstName,
     lineup.game,
     lineup.games,
     lineup.allPlayers
   )
+
+  function handleShowFirstNameChange() {
+    setShowFirstName(!showFirstName)
+  }
   let teamMembers = []
 
   function updateTeamTables() {
@@ -52,6 +58,15 @@ export default function LineupTable({ lineup }) {
   return (
     <>
       <div id="lineup-page" className="center background-white">
+        <input
+          type="checkbox"
+          id="showFirstName"
+          onChange={handleShowFirstNameChange}
+          defaultChecked={showFirstName}
+        ></input>
+        <label htmlFor="showFirstName">Show First Name</label>
+        <br></br>
+        <br></br>
         <table id="lineup-table" className="background-white">
           <div id="lineup-table-div" className="background-white">
             <thead className="lineup-table-head background-white">

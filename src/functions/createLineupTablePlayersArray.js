@@ -1,4 +1,9 @@
-export default function createLineupTablePlayersArrray(game, games, players) {
+export default function createLineupTablePlayersArrray(
+  showFirstName,
+  game,
+  games,
+  players
+) {
   //declare some variables
   let playersArray = []
 
@@ -23,9 +28,12 @@ export default function createLineupTablePlayersArrray(game, games, players) {
 
   //construct the row
   function compute(aPlayer, index) {
-    let firstName = aPlayer[2]
-    let lastName = aPlayer[1]
-    let player = firstName + " " + lastName
+    let player
+    if (showFirstName) {
+      player = aPlayer[2] + " " + aPlayer[1]
+    } else {
+      player = aPlayer[1]
+    }
     let playerReturn = {
       id: Number(aPlayer[0]),
       playerName: player,

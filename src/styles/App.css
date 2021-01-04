@@ -162,6 +162,12 @@ td.lineup-left-row-cell {
   background-color: #ffffff;
   color: #000000;
 }
+td.teams-left-row-cell {
+  width: 10%;
+  text-align: left;
+  background-color: #ffffff;
+  color: #000000;
+}
 
 th.lineup-other-header-cell {
   text-align: center;

@@ -3,9 +3,11 @@ import TeamTable from "./TeamTable"
 import { v4 as uuidv4 } from "uuid"
 import ButtonDownloadScreenShot from "./ButtonDownloadScreenshot"
 import createLineupTablePlayersArray from "../functions/createLineupTablePlayersArray"
+import getCourseName from "../functions/getCourseName"
 
 export default function LineupTable({ lineup }) {
   const [showFirstName, setShowFirstName] = useState(false)
+  let courseName = getCourseName(lineup.course)
   let playersArray = createLineupTablePlayersArray(
     showFirstName,
     lineup.game,
@@ -72,11 +74,7 @@ export default function LineupTable({ lineup }) {
             <thead className="lineup-table-head background-white">
               <tr className="lineup-table-head background-white">
                 <td className="lineup-table-head background-white">
-                  {lineup.game +
-                    ", " +
-                    lineup.playingDate +
-                    " at " +
-                    lineup.course.toUpperCase()}
+                  {lineup.playingDate + " at " + courseName}
                 </td>
               </tr>
               <tr>

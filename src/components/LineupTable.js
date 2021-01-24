@@ -5,7 +5,7 @@ import ButtonDownloadScreenShot from "./ButtonDownloadScreenshot"
 import createLineupTablePlayersArray from "../functions/createLineupTablePlayersArray"
 import getCourseName from "../functions/getCourseName"
 
-export default function LineupTable({ lineup }) {
+export default function LineupTable({ lineupTitle, lineup }) {
   const [showFirstName, setShowFirstName] = useState(false)
   let courseName = getCourseName(lineup.course)
   let playersArray = createLineupTablePlayersArray(
@@ -16,7 +16,7 @@ export default function LineupTable({ lineup }) {
   )
 
   function handleShowFirstNameChange() {
-    setShowFirstName(!showFirstName)
+    setShowFirstName((prevState) => !prevState)
   }
   let teamMembers = []
 
@@ -104,6 +104,7 @@ export default function LineupTable({ lineup }) {
         <br></br>
         <br></br>
         <ButtonDownloadScreenShot
+          title={lineupTitle}
           game={lineup.game}
           course={lineup.course.toUpperCase()}
           element="lineup-table-div"

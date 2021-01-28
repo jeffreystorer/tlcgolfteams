@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      /* Set the body to occupy the 
+		whole browser window 
+		when there is less content */
+      body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+      }
+    </style>
+    <title>Testing Zoom</title>
+  </head>
+
+  <body>
+    <h1 style="color: green">GeeksforGeeks</h1>
+
+    <b> Zoom in or out of the page to get the current zoom value </b>
+
+    <p>
+      Current Zoom Level in pixels:
+      <span class="output"> </span>
+    </p>
+    <div id="root"></div>
+
+    <script>
+      window.addEventListener("resize", getSizes, false)
+
+      let out = document.querySelector(".output")
+
+      function getSizes() {
+        let body = document.body
+        let zoom = body.clientWidth + "px x " + body.clientHeight + "px"
+        out.textContent = zoom
+      }
+    </script>
+  </body>
+</html>

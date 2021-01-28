@@ -29,7 +29,7 @@ export default function App() {
 
   function getSizes() {
     let body = document.body
-    let currentZoom = body.clientWidth + "px X" + body.clientHeight + "px"
+    let currentZoom = body.clientWidth + "px X " + body.clientHeight + "px"
     setZoom(currentZoom)
   }
 
